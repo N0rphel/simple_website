@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: norphel/simple-website
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+gateway:
+  enabled: true
+  name: nginx-gateway # Name of your existing Gateway
+  namespace: default # Namespace where your Gateway is
+  host: simple-website-pc.o.selise.dev
