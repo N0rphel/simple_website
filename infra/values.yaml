@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: norphel/simple-website
+  repository: norphel/voting-app
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -13,6 +13,15 @@ service:
 
 gateway:
   enabled: true
-  name: nginx-gateway # Name of your existing Gateway
-  namespace: simple-website # Namespace where your Gateway is
+  name: nginx-gateway
+  namespace: simple-website
   host: simple-website-pc.o.selise.dev
+
+postgres:
+  name: voting-db
+  image: postgres:15
+  user: vote_user
+  password: vote_pass
+  db: votes
+  port: 5432
+  storage: 1Gi

@@ -2,29 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Vote: Cat or Dog?</title>
-		<link rel="stylesheet" href="style.css" />
+		<title>Vote App</title>
+		<link rel="stylesheet" href="/style.css" />
 	</head>
 	<body>
-		<div class="container">
-			<h1>Vote for your favorite!</h1>
-			<button onclick="vote('cat')">🐱 Cat</button>
-			<button onclick="vote('dog')">🐶 Dog</button>
-			<p id="message"></p>
-			<p><a href="results.html">See Results</a></p>
-		</div>
-
-		<script>
-			async function vote(choice) {
-				const res = await fetch("/vote", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ choice }),
-				});
-				if (res.ok)
-					document.getElementById("message").textContent = "Vote recorded!";
-				else document.getElementById("message").textContent = "Error voting!";
-			}
-		</script>
+		<h1>🐱 vs 🐶 Voting App</h1>
+		<form action="/vote/cat" method="POST">
+			<button type="submit">Vote Cat 🐱</button>
+		</form>
+		<form action="/vote/dog" method="POST">
+			<button type="submit">Vote Dog 🐶</button>
+		</form>
+		<a href="/results.html">See Results</a>
 	</body>
 </html>

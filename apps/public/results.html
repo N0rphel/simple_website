@@ -2,25 +2,22 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Voting Results</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="container">
-			<h1>Results</h1>
-			<p>🐱 Cat: <span id="cat">0</span></p>
-			<p>🐶 Dog: <span id="dog">0</span></p>
-			<p><a href="index.html">Back to Vote</a></p>
-		</div>
-
+		<title>Results</title>
+		<link rel="stylesheet" href="/style.css" />
 		<script>
 			async function loadResults() {
-				const res = await fetch("/results");
+				const res = await fetch("/api/results");
 				const data = await res.json();
-				document.getElementById("cat").textContent = data.cat;
-				document.getElementById("dog").textContent = data.dog;
+				document.getElementById("cats").textContent = data.cats;
+				document.getElementById("dogs").textContent = data.dogs;
 			}
-			loadResults();
+			window.onload = loadResults;
 		</script>
+	</head>
+	<body>
+		<h1>🐱 vs 🐶 Results</h1>
+		<div class="count">Cats 🐱: <span id="cats">0</span></div>
+		<div class="count">Dogs 🐶: <span id="dogs">0</span></div>
+		<a href="/">Back to Vote</a>
 	</body>
 </html>
