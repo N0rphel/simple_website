@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-website
+  name: {{ .Values.service.name }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: 3000
+      targetPort: {{ .Values.service.targetPort }}
   selector:
-    app: simple-website
+    app: {{ .Values.service.name }}

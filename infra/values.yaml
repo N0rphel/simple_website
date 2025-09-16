@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: norphel/simple-website
@@ -6,8 +6,10 @@ image:
   pullPolicy: IfNotPresent
 
 service:
+  name: simple-website
   type: ClusterIP
   port: 80
+  targetPort: 3000
 
 gateway:
   enabled: true
