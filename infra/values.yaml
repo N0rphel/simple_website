@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: norphel/simple-app
+  repository: norphel/simple-website
   tag: latest
   pullPolicy: IfNotPresent
 
