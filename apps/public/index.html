@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Vote: Cat or Dog?</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Vote for your favorite!</h1>
+			<button onclick="vote('cat')">🐱 Cat</button>
+			<button onclick="vote('dog')">🐶 Dog</button>
+			<p id="message"></p>
+			<p><a href="results.html">See Results</a></p>
+		</div>
+
+		<script>
+			async function vote(choice) {
+				const res = await fetch("/vote", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ choice }),
+				});
+				if (res.ok)
+					document.getElementById("message").textContent = "Vote recorded!";
+				else document.getElementById("message").textContent = "Error voting!";
+			}
+		</script>
+	</body>
+</html>

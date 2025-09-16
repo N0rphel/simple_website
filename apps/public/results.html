@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Voting Results</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Results</h1>
+			<p>🐱 Cat: <span id="cat">0</span></p>
+			<p>🐶 Dog: <span id="dog">0</span></p>
+			<p><a href="index.html">Back to Vote</a></p>
+		</div>
+
+		<script>
+			async function loadResults() {
+				const res = await fetch("/results");
+				const data = await res.json();
+				document.getElementById("cat").textContent = data.cat;
+				document.getElementById("dog").textContent = data.dog;
+			}
+			loadResults();
+		</script>
+	</body>
+</html>
