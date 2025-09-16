@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: norphel/voting-app
+  repository: norphel/simple-app
   tag: latest
   pullPolicy: IfNotPresent
 
