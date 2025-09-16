@@ -7,6 +7,7 @@ metadata:
 spec:
   parentRefs:
     - name: {{ .Values.gateway.name }}
+      namespace: default
   hostnames:
     - {{ .Values.gateway.host | quote }}
   rules:
